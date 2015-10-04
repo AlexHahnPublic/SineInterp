@@ -31,19 +31,11 @@ struct LinearSine : SinePrototype
         MyBig b = 1.;
         Sn[0] = 0.;
         Sn[1] = 1.;
-        //for (int i = 2; i <= nm; i++) {
-            //if (i%2 == 1 && (i-1)/2 < 46) {
-            //    Sn[i] = A[(i-1)/2];
-            //} else {
-            //    Sn[i] = (i%2 == 0) ? 0 : 1 - (i-1)*i*Sn[i-2]/pi/pi;
-            //}
-
-            // printf("S(%d) = %f\n",i,Sn[i]);
-        //}
         for (int i = 2; i <= nm; i+=2) {
             b = MyBig(1) - MyBig((i+1)*i)/(pi*pi)*b;
             Sn[i] = 0;
             Sn[i+1] = b.ToDouble();
+            //printf("S(%d) = %e\n",i+1,Sn[i+1]-A[(i)/2]);
         }
     }
 
@@ -98,8 +90,8 @@ struct LinearSine : SinePrototype
         for (int i = 0; i < 2*n+1; i++) {
             ret += r[i]*2*PI/(i+1);
         }
-        return 2*PI/(2*n+1);
-        //return ret;
+        //return 2*PI/(2*n+1);
+        return ret;
     }
 
     void coef() {

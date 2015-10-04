@@ -37,6 +37,7 @@ int main()
     //    cout << "Iteration " << (2*i-1) << endl;
     //    LinearSine l(2*i-1);
     //    EvaluateYourSine(&l, "least squares sine (using legendre polynomials)");
+    //    cout << l.sine(0.7) << ", " << machineSine.sine(0.7) << l.sine(0.7) - machineSine.sine(0.7) << "\n";
     //}
 }
 
